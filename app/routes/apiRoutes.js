@@ -1,12 +1,24 @@
-var employees = require("../data/employees");
+var express = require("express");
+var path = require("path");
+var app = express();
 
-app.get("/api/employees", function(req, res) {
-    return res.json(employees);
-});
+function apiRoutes() {
+    var employees = require("../data/employees");
 
-app.post("/api/employees", function(req, res) {
-    var newEmployee = req.body;
-    newEmployee.routeName = newEmployee.name.replace(/\s+/g, "").toLowerCase();
-    employees.push(newEmployee);
-    res.json(newEmployee);
-});
+    app.get("/api/employees", function(req, res) {
+        return res.json(employees);
+    });
+    
+    app.post("/api/employees", function(req, res) {
+        var newEmployee = req.body;
+        newEmployee.routeName = newEmployee.name.replace(/\s+/g, "").toLowerCase();
+        employees.push(newEmployee);
+        res.json(newEmployee);
+    });
+}
+    
+module.exports = {
+    apiRoutes: apiRoutes()
+}
+
+

@@ -24,4 +24,4 @@ var employees = [
 
 module.exports = {
     employeesKey: employees 
-};
+}

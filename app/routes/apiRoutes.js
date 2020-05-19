@@ -2,7 +2,7 @@ var express = require("express");
 var path = require("path");
 var app = express();
 
-function apiRoutes() {
+module.exports = function(app) {
     var employees = require("../data/employees");
 
     app.get("/api/employees", function(req, res) {
@@ -15,10 +15,6 @@ function apiRoutes() {
         employees.push(newEmployee);
         res.json(newEmployee);
     });
-}
-    
-module.exports = {
-    apiRoutes: apiRoutes()
-}
+};
 
 

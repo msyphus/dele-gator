@@ -58,6 +58,27 @@
             font-family: 'Noto Sans', sans-serif;
             margin:0 10px;
         }
+
+        form {
+            margin: 1% 5% 3%;
+            padding: 1%;
+            border: 2px solid #aaaaaa;
+            background-color: #BCF5EE;
+        }
+
+        label {
+            display: block;
+            font-family: 'Noto Sans', sans-serif;
+            margin: 10px 0;
+        }
+
+        select {
+            display: block;
+            font-family: 'Noto Sans', sans-serif;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #dddddd;
+        }
     </style>
 </head>
 <body>
@@ -72,7 +93,7 @@
 
 <hr>
 
-<h3>Employee Survey</h3>
+<h3 style="margin: 1.5% 5% 0">Employee Survey</h3>
 
 <form>
     <label for="relations" class="questions">How would you rate your overall relationships with everyone you interact with at work?</label>
@@ -115,14 +136,6 @@
         <option>4 – Strong skills with some leadership</option>
         <option>5 – Advanced skills experience leading projects</option>
     </select>
-    <label for="" class="questions"></label>
-    <select class="answers" id="">
-        <option></option>
-        <option></option>
-        <option></option>
-        <option></option>
-        <option></option>
-    </select>
     <label for="analysis" class="questions">How would you rate your data analysis expertise?</label>
     <select class="answers" id="analysis">
         <option>1 – I hate numbers</option>
@@ -163,7 +176,7 @@
         <option>4 – Highly interested but fine either way</option>
         <option>5 – Prefer it</option>
     </select>
-    <button type="submit">Submit</button>
+    <button class="regBtn" type="submit" style="margin: 20px 0;">Submit</button>
 </form>
     
 </body>

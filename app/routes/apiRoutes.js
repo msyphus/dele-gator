@@ -3,7 +3,7 @@ var projects = require("../data/projects");
 
 module.exports = function(app) {
     app.get("/api/employee-survey", function(req, res) {
-        return res.json(employees);
+        res.json(employees);
     });
 
     app.get("api/project-survey", function(req, res) {

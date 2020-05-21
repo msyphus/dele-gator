@@ -1,4 +1,4 @@
-var employees = [
+var employeeArray = [
     {
         name: "Jim",
         photo: "https://cdn.pixabay.com/photo/2016/11/29/09/38/adult-1868750_1280.jpg",
@@ -22,6 +22,4 @@ var employees = [
     }
 ];
 
-module.exports = {
-    employeesKey: employees 
-};
+module.exports = employeeArray;

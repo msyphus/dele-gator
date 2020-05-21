@@ -193,19 +193,22 @@
 <script>
     $("#submit").on("click", function(event) {
         event.preventDefault();
+
         var newEmployee = {
             empName: $("#name").val().trim(),
             empImg: $("#photo").val(),
-            relations: $("#relations").val()[0],
-            convince: $("#convince").val()[0],
-            motivate: $("#motivate").val()[0],
-            unite: $("#unite").val()[0],
-            process: $("#process").val()[0],
-            analysis: $("#analysis").val()[0],
-            budget: $("#budget").val()[0],
-            prioritize: $("#prioritize").val()[0],
-            alone: $("#alone").val()[0],
-            lead: $("#lead").val()[0]
+            scores: [
+                $("#relations").val()[0], 
+                $("#convince").val()[0], 
+                $("#motivate").val()[0], 
+                $("#unite").val()[0],
+                $("#process").val()[0],
+                $("#analysis").val()[0],
+                $("#budget").val()[0],
+                $("#prioritize").val()[0],
+                $("#alone").val()[0],
+                $("#lead").val()[0]
+            ]
         };
 
         $.post("/api/employee-survey", newEmployee, function(data) {

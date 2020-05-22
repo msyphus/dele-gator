@@ -22,14 +22,18 @@ module.exports = function(app) {
         res.json(newProject);
 
         var projScores = [];
+        var diffs = [];
         for(var i=0; i < newProject.scores.length; i++) {
             projScores.push(parseFloat(newProject.scores[i]));
         }
 
+        for(var j = 0; j < employees.length; j++) {
             var x = projScores.map(function(a, b) {
-                return Math.abs(a - employees[0].scores[b]);
+                return Math.abs(a - employees[j].scores[b]);
             });
-        console.log(x);
+            diffs.push(x);
+        }
+        console.log(diffs);
     });
 };
 

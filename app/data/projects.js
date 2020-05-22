@@ -1,4 +1,4 @@
-var projects = [
+var projectsArray = [
     {
         name: "clean supply storage room",
         scores: []
@@ -17,6 +17,4 @@ var projects = [
     }
 ];
 
-module.exports = {
-    projectKey: projects
-};
+module.exports = projectsArray;

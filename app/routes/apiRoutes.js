@@ -6,7 +6,7 @@ module.exports = function(app) {
         res.json(employees);
     });
 
-    app.get("api/project-survey", function(req, res) {
+    app.get("/api/project-survey", function(req, res) {
         res.json(projects);
     });
     
@@ -16,9 +16,11 @@ module.exports = function(app) {
         res.json(newEmployee);
     });
 
-    // app.post("/api/project-survey", function(req, res) {
-    //     projects.push(req.body);
-    // });
+    app.post("/api/project-survey", function(req, res) {
+        var newProject = req.body;
+        projects.push(newProject);
+        res.json(newProject);
+    });
 };
 
 

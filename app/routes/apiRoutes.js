@@ -20,6 +20,16 @@ module.exports = function(app) {
         var newProject = req.body;
         projects.push(newProject);
         res.json(newProject);
+
+        var projScores = [];
+        for(var i=0; i < newProject.scores.length; i++) {
+            projScores.push(parseFloat(newProject.scores[i]));
+        }
+
+            var x = projScores.map(function(a, b) {
+                return Math.abs(a - employees[0].scores[b]);
+            });
+        console.log(x);
     });
 };
 

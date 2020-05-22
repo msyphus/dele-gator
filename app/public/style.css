@@ -1,0 +1,73 @@
+header {
+    text-align: center;
+    padding: 1%;
+}
+
+.logo {
+    width: 40px;
+    height: 45px;
+    display: inline-block;
+    margin: 0 20px;
+}
+
+h1 {
+    display: inline;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
+    font-size: 64px;
+    margin: 1.5%;
+}
+
+i {
+    font-style: italic;
+}
+
+h3 {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 36px;
+    margin: 1.5%;
+}
+
+p {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 1.5%;
+}
+
+.buttons {
+    text-align: center;
+    margin: 3%;
+}
+
+.regBtn {
+    padding: 5px 15px;
+    background-image: linear-gradient(to bottom, rgba(53, 143, 82, 1),rgba(53, 143, 82, .5));
+    border: 2px outset #aaaaaa;
+    border-radius: 10px;
+    color: #eeeeee;
+    font-family: 'Noto Sans', sans-serif;
+    margin:0 10px;
+    cursor: pointer;
+}
+
+form {
+    margin: 1% 5% 3%;
+    padding: 1%;
+    border: 2px solid #aaaaaa;
+    background-color: #BCF5EE;
+}
+
+label {
+    display: block;
+    font-family: 'Noto Sans', sans-serif;
+    margin: 10px 0;
+}
+
+select {
+    display: block;
+    font-family: 'Noto Sans', sans-serif;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #dddddd;
+}

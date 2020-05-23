@@ -43,7 +43,10 @@ module.exports = function(app) {
             sums.push(result);
             result = 0;
         }
-        console.log(sums);
+        var matchSum = Math.min(...sums); //destructure array so Math.min will work
+        var matchIndex = sums.indexOf(matchSum);
+        var bestMatch = employees[matchIndex].name;
+        console.log(bestMatch);
     });
 };
 

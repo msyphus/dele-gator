@@ -110,6 +110,14 @@
     <button class="regBtn" id="submit" type="submit" style="margin: 20px 0;">Submit</button>
 </form>
 
+<div class="modal" id="matchModal" >
+    <div class="modalBody">
+        <span class="closeBtn">&times;</span>
+        <h3 id="bestMatchTitle">The right employee for this project is Jenna</h3>
+        <img class="modalImg" id="bestMatchImg" src="https://cdn.pixabay.com/photo/2018/07/25/08/59/business-3560934_1280.jpg" alt="Best employee for the job">
+    </div>
+</div>
+
 <a href="/"><button class="regBtn" style="margin: 0 6.5% 3%">Home</button></a>
 <a href="/api/employee-survey"><button class="regBtn">Employees API</button></a>
 <a href="/api/project-survey"><button class="regBtn">Projects API</button></a>
@@ -118,7 +126,6 @@
 <script>
     $("#submit").on("click", function(event) {
         event.preventDefault();
-        console.log("Clicked");
 
         var newProject = {
             projName: $("#name").val().trim(),
@@ -135,12 +142,10 @@
                 $("#lead").val()[0]
             ]
         };
-        console.log(newProject);
-
+        
         $.post("/api/project-survey", newProject, function(data) {
             console.log(data);
-            alert("Thank you for your submission!")
-
+            
             $("#name").val("");
             $("#photo").val("");
             $("#relations").val("");
@@ -153,6 +158,12 @@
             $("#prioritize").val("");
             $("#alone").val("");
             $("#lead").val("");
+        });
+
+        $(".modal").css("display", "block");
+        
+        $(".closeBtn").on("click", function() {
+            $(".modal").css("display", "none");
         });
     });
 </script>

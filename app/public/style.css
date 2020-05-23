@@ -71,3 +71,23 @@ select {
     border-radius: 5px;
     background-color: #dddddd;
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    z-index: 1;
+    width: 60%;
+    height: auto;
+    background-color: #aaaaaa;
+}
+
+.modalBody {
+    text-align: center;
+    padding: 2%;
+}
+
+.closeBtn {
+    float: right;
+}

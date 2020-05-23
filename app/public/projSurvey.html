@@ -113,8 +113,8 @@
 <div class="modal" id="matchModal" >
     <div class="modalBody">
         <span class="closeBtn">&times;</span>
-        <h3 id="bestMatchTitle">The right employee for this project is Jenna</h3>
-        <img class="modalImg" id="bestMatchImg" src="https://cdn.pixabay.com/photo/2018/07/25/08/59/business-3560934_1280.jpg" alt="Best employee for the job">
+        <h3 id="bestMatchTitle"></h3>
+        <img class="modalImg" id="bestMatchImg" src="" alt="Best employee for the job">
     </div>
 </div>
 
@@ -124,6 +124,7 @@
 
 </body>
 <script>
+
     $("#submit").on("click", function(event) {
         event.preventDefault();
 
@@ -160,10 +161,19 @@
         });
 
         $(".modal").css("display", "block");
+        getBestMatch();
         
         $(".closeBtn").on("click", function() {
             $(".modal").css("display", "none");
         });
     });
+
+function getBestMatch() {
+    $.ajax({url: "/api/project-survey", method: "GET"})
+    .then(function(response) {
+        $("#bestMatchTitle").text("The right employee for this project is " + response[1].name);
+        $("#bestMatchImg").attr("src", response[1].photo);
+    });
+}
 </script>
 </html>

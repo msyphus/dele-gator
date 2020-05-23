@@ -45,8 +45,8 @@ module.exports = function(app) {
         }
         var matchSum = Math.min(...sums); //destructure array so Math.min will work
         var matchIndex = sums.indexOf(matchSum);
-        var bestMatch = employees[matchIndex].name;
-        console.log(bestMatch);
+        var bestMatch = employees[matchIndex];
+        projects.push(bestMatch);
     });
 };
 

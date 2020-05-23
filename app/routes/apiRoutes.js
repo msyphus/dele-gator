@@ -23,17 +23,27 @@ module.exports = function(app) {
 
         var projScores = [];
         var diffs = [];
+        var sums = [];
+        var result = 0;
         for(var i=0; i < newProject.scores.length; i++) {
             projScores.push(parseFloat(newProject.scores[i]));
         }
 
         for(var j = 0; j < employees.length; j++) {
             var x = projScores.map(function(a, b) {
-                return Math.abs(a - employees[j].scores[b]);
+                return Math.abs(a - employees[j].scores[b]); 
             });
             diffs.push(x);
         }
-        console.log(diffs);
+
+        for(var k = 0; k < diffs.length; k++) {
+            for(var l = 0; l < diffs[k].length; l++) {
+                result += diffs[k][l];
+            }
+            sums.push(result);
+            result = 0;
+        }
+        console.log(sums);
     });
 };
 

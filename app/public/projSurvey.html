@@ -171,8 +171,9 @@
 function getBestMatch() {
     $.ajax({url: "/api/project-survey", method: "GET"})
     .then(function(response) {
-        $("#bestMatchTitle").text("The right employee for this project is " + response[1].name);
-        $("#bestMatchImg").attr("src", response[1].photo);
+        $("#bestMatchTitle").text("The right employee for this project is " + response[response.length -1].name);
+        $("#bestMatchImg").attr("src", response[response.length -1].photo);
+        console.log(response);
     });
 }
 </script>

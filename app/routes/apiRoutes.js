@@ -11,7 +11,13 @@ module.exports = function(app) {
     });
     
     app.post("/api/employee-survey", function(req, res) {
+        var scores = [];
         var newEmployee = req.body;
+        
+        for(var h=0; h < newEmployee.scores.length; h++) {
+            scores.push(parseFloat(newEmployee.scores[h]));
+        }
+        newEmployee.scores.splice(0, 10, ...scores);
         employees.push(newEmployee);
         res.json(newEmployee);
     });
@@ -50,4 +56,4 @@ module.exports = function(app) {
     });
 };
 
-
+//need to push new employee to the employees.js file

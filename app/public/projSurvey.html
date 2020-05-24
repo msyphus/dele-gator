@@ -160,12 +160,8 @@
             $("#lead").val("");
         });
 
-        $(".modal").css("display", "block");
         getBestMatch();
-        
-        $(".closeBtn").on("click", function() {
-            $(".modal").css("display", "none");
-        });
+        setTimeout(displayModal, 100);
     });
 
 function getBestMatch() {
@@ -173,8 +169,16 @@ function getBestMatch() {
     .then(function(response) {
         $("#bestMatchTitle").text("The right employee for this project is " + response[response.length -1].name);
         $("#bestMatchImg").attr("src", response[response.length -1].photo);
-        console.log(response);
     });
-}
+};
+
+function displayModal() {
+    $(".modal").css("display", "block");
+        
+    $(".closeBtn").on("click", function() {
+        $(".modal").css("display", "none");
+    });
+};
+
 </script>
 </html>

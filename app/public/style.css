@@ -55,6 +55,7 @@ form {
     margin: 1% 5% 3%;
     padding: 1%;
     border: 2px solid #aaaaaa;
+    border-radius: 5px;
     background-color: #BCF5EE;
 }
 
@@ -64,10 +65,11 @@ label {
     margin: 10px 0;
 }
 
-select {
+input, select {
     display: block;
     font-family: 'Noto Sans', sans-serif;
     padding: 5px;
+    border: 1px solid #aaaaaa;
     border-radius: 5px;
     background-color: #dddddd;
 }

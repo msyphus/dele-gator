@@ -28,7 +28,7 @@
     <label for="name" class="questions">Employee Name</label>
     <input type="text" class="answers" id="name">
     <label for="photo" class="questions">Profile Photo</label>
-    <input type="file" id="photo" accept="image/*">
+    <input type="text" id="photo" placeholder="Enter URL to a photo">
     <label for="relations" class="questions">How would you rate your overall relationships with everyone you interact with at work?</label>
     <select class="answers" id="relations">
         <option>1 – I don’t really have any relationships at work</option>
@@ -120,10 +120,12 @@
 <script>
     $("#submit").on("click", function(event) {
         event.preventDefault();
-
-        var newEmployee = {
-            empName: $("#name").val().trim(),
-            empImg: $("#photo").val(),
+        if($("#name").val() === "") {
+            alert("Please enter an employee name.")
+        } else {
+            var newEmployee = {
+            name: $("#name").val().trim(),
+            photo: $("#photo").val(),
             scores: [
                 $("#relations").val()[0], 
                 $("#convince").val()[0], 
@@ -136,25 +138,26 @@
                 $("#alone").val()[0],
                 $("#lead").val()[0]
             ]
+            };        
+
+            $.post("/api/employee-survey", newEmployee, function() {
+                
+                alert("Thank you for your submission!")
+
+                $("#name").val("");
+                $("#photo").val("");
+                $("#relations").val("");
+                $("#convince").val("");
+                $("#motivate").val("");
+                $("#unite").val("");
+                $("#process").val("");
+                $("#analysis").val("");
+                $("#budget").val("");
+                $("#prioritize").val("");
+                $("#alone").val("");
+                $("#lead").val("");
+            });
         };
-
-        $.post("/api/employee-survey", newEmployee, function(data) {
-            console.log(data);
-            alert("Thank you for your submission!")
-
-            $("#name").val("");
-            $("#photo").val("");
-            $("#relations").val("");
-            $("#convince").val("");
-            $("#motivate").val("");
-            $("#unite").val("");
-            $("#process").val("");
-            $("#analysis").val("");
-            $("#budget").val("");
-            $("#prioritize").val("");
-            $("#alone").val("");
-            $("#lead").val("");
-        });
     });
 </script>
 </html>

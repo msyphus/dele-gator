@@ -120,8 +120,10 @@
 <script>
     $("#submit").on("click", function(event) {
         event.preventDefault();
-        if($("#name").val() === "") {
-            alert("Please enter an employee name.")
+        if($("#name").val() === "" || $("#photo").val() === "") {
+            alert("Please enter an employee name and photo URL.");
+        } else if(!$("#photo").val().startsWith("http")) {
+            alert("Please enter a valid URL including http:// or https://");
         } else {
             var newEmployee = {
             name: $("#name").val().trim(),

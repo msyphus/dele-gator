@@ -55,5 +55,3 @@ module.exports = function(app) {
         projects.push(bestMatch);
     });
 };
-
-//need to push new employee to the employees.js file

@@ -112,6 +112,14 @@
     <button class="regBtn" id="submit" type="submit" style="margin: 20px 0;">Submit</button>
 </form>
 
+<div class="modal" id="submitModal" >
+    <div class="modalBody">
+        <span class="closeBtn">&times;</span>
+        <h3 id="submitModalText"></h3>
+        <img class="modalImg" id="submitModalImg" src="" alt="Form submission emoji">
+    </div>
+</div>
+
 <a href="/"><button class="regBtn" style="margin: 0 6.5% 3%">Home</button></a>
 <a href="/api/employee-survey"><button class="regBtn">Employees API</button></a>
 <a href="/api/project-survey"><button class="regBtn">Projects API</button></a>
@@ -121,9 +129,21 @@
     $("#submit").on("click", function(event) {
         event.preventDefault();
         if($("#name").val() === "" || $("#photo").val() === "") {
-            alert("Please enter an employee name and photo URL.");
+            $(".modal").css("display", "block");
+            $("#submitModalText").text("Please enter an employee name and photo URL.")
+            $("#submitModalImg").attr("src", "https://cdn.pixabay.com/photo/2016/08/29/11/55/emoticon-1628080_1280.png")
+    
+            $(".closeBtn").on("click", function() {
+                $(".modal").css("display", "none");
+            });
         } else if(!$("#photo").val().startsWith("http")) {
-            alert("Please enter a valid URL including http:// or https://");
+            $(".modal").css("display", "block");
+            $("#submitModalText").text("Please enter a valid URL including http:// or https://")
+            $("#submitModalImg").attr("src", "https://cdn.pixabay.com/photo/2016/08/29/11/55/emoticon-1628080_1280.png")
+    
+            $(".closeBtn").on("click", function() {
+                $(".modal").css("display", "none");
+            });
         } else {
             var newEmployee = {
             name: $("#name").val().trim(),
@@ -143,8 +163,13 @@
             };        
 
             $.post("/api/employee-survey", newEmployee, function() {
-                
-                alert("Thank you for your submission!")
+                $(".modal").css("display", "block");
+                $("#submitModalText").text("Thank you for your submission!")
+                $("#submitModalImg").attr("src", "https://cdn.pixabay.com/photo/2016/08/21/18/48/emoticon-1610518_1280.png")
+        
+                $(".closeBtn").on("click", function() {
+                    $(".modal").css("display", "none");
+                });
 
                 $("#name").val("");
                 $("#photo").val("");

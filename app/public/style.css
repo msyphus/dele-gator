@@ -81,7 +81,7 @@ input, select {
     left: 20%;
     z-index: 1;
     width: 50%;
-    height: 66%;
+    height: auto;
     background-color: #bbbbbb;
     border: 2px outset #cccccc;
     border-radius: 8px;

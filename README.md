@@ -37,3 +37,5 @@ This app was built by Mark Syphus (2020) using the following technologies:
 * Express.js
 * Google Fonts
 * Heroku
+
+At the moment, survey results are only stored during the current browsing session.

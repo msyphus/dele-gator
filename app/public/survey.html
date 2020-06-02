@@ -22,13 +22,14 @@
 
 <hr>
 
-<h3 style="margin: 1.5% 5% 0">Employee Survey</h3>
+<div class="mainContainer">
+<h3 style="margin: 1.5% 5%">Employee Survey</h3>
 
 <form>
     <label for="name" class="questions">Employee Name</label>
-    <input type="text" class="answers" id="name">
+    <input type="text" class="answer" id="name">
     <label for="photo" class="questions">Profile Photo</label>
-    <input type="text" id="photo" placeholder="Enter URL to a photo">
+    <input type="text" id="photo" class="answer" placeholder="Enter URL to a photo">
     <label for="relations" class="questions">How would you rate your overall relationships with everyone you interact with at work?</label>
     <select class="answers" id="relations">
         <option>1 – I don’t really have any relationships at work</option>
@@ -123,6 +124,8 @@
 <a href="/"><button class="regBtn" style="margin: 0 6.5% 3%">Home</button></a>
 <a href="/api/employee-survey"><button class="regBtn">Employees API</button></a>
 <a href="/api/project-survey"><button class="regBtn">Projects API</button></a>
+
+</div>
     
 </body>
 <script>
